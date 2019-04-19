@@ -2,12 +2,18 @@ function main() {
     'use strict';
 
     let num = 33721;
-    //Вывести в консоль произведение (умножение) цифр этого числа
-    let result = 3*3*7*2*1;
-    console.log(result);
+
+    //число в строку; разделяем в массив из букв
+    num = String(num);
+    num = num.split('');
+
+    //перемножаем все числа массива
+    let result = num.reduce(function(sum, current) {
+        return sum * current
+    }, 1);
 
     //Полученный результат возвести в степень 3,
-    // используя только 1 оператор (Math.pow не подходит)
+    //используя только 1 оператор (Math.pow не подходит)
     result **= 3;
 
     //Вывести на экран первые 2 цифры полученного числа
@@ -17,7 +23,6 @@ function main() {
     string = string.substr(0,2);
     string = parseInt(string);
     alert(string);
-
 }
 
 main();
