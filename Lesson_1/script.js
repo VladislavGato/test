@@ -1,33 +1,31 @@
 function main() {
-    'use strict';
+  'use strict';
 
-    let money = +prompt("Ваш бюджет на месяц?"),
-        time = prompt("Введите дату в формате YYYY-MM-DD"),
-        appData = {
-            expenses: {},
-            optionalExpenses: {}, 
-            income: [], 
-            savings: false
-        };
-    //бюджет:
-    appData.budget = money;
-    //данные времени:
-    appData.timeData = time;
+  let money = +prompt("Ваш бюджет на месяц?", ''),
+      time = prompt("Введите дату в формате YYYY-MM-DD", '');
 
-    //Задать пользователю по 2 раза вопросы:
-    let answer1 = prompt("Введите обязательную статью расходов в этом месяце"),
-        answer2 = prompt("Во сколько обойдется?");
-    appData.expenses[answer1] = answer2;
+  let appData = {
+      budget: money,
+      timeData: time,
+      expenses: {},
+      optionalExpenses: {}, 
+      income: [], 
+      savings: false
+  };
 
-    answer1 = prompt("Введите обязательную статью расходов в этом месяце");
-    answer2 = prompt("Во сколько обойдется?");
-    appData.expenses[answer1] = answer2;
+  //Задать пользователю по 2 раза вопросы:
+  let answer1 = prompt("Введите обязательную статью расходов в этом месяце"),
+      answer2 = prompt("Во сколько обойдется?"),
+      answer3 = prompt("Введите обязательную статью расходов в этом месяце"),
+      answer4 = prompt("Во сколько обойдется?");
 
-    //Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней)
-    let dayPerMonth = 30,
-        budgetFor1Day = money / dayPerMonth;
-    alert("Ваш бюджет на 1 день = " + ((budgetFor1Day).toFixed(2)) + 
-          " рублей.");
+  appData.expenses[answer1] = answer2;
+  appData.expenses[answer3] = answer4;
+
+
+  //Вывести на экран пользователя бюджет на 1 день (брать месяц за 30 дней)
+  alert("Ваш бюджет на 1 день = " + (appData.budget / 30).toFixed(2) + 
+        " рублей.");
 }
 
 main();
