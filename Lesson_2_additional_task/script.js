@@ -12,37 +12,38 @@ function main() {
     'воскресенье'
   ];
 
-  let div = document.createElement('div');
-  div.className = "alert";
-  div.innerHTML = week[0];
+  for (let i = 0; i < week.length; i++) {
+    let div = document.createElement('div'),
+    p = document.createElement('p');
 
-  document.body.appendChild(div, document.body.firstChild);
-  
-  let div2 = div.cloneNode(true);
-  div2.innerHTML = week[1];
-  div.parentNode.insertBefore(div2, div.nextSibling);
+    if ( i == 6 || i == 5 ) {
+      div.classList.add('alert', 'alert2');
+    } else if ( i == 4 ) {
+      div.classList.add('alert', 'alert3');
+    } else {
+      div.classList.add('alert');
+    }
 
-  let div3 = div2.cloneNode(true);
-  div3.innerHTML = week[2];
-  div2.parentNode.insertBefore(div3, div2.nextSibling);
+    document.body.appendChild(div);
+    div.appendChild(p);
+    p.innerHTML = week[i];
+  }
 
-  let div4 = div3.cloneNode(true);
-  div4.innerHTML = week[3];
-  div3.parentNode.insertBefore(div4, div3.nextSibling);
+//////// второй вариант без создавания тега <p>
+  // for (let i = 0; i < week.length; i++) {
+  //   let div = document.createElement('div');
 
-  let div5 = div4.cloneNode(true);
-  div5.className = "alert alert3";
-  div5.innerHTML = week[4];
-  div4.parentNode.insertBefore(div5, div4.nextSibling);
+  //   if ( i == 6 || i == 5 ) {
+  //     div.classList.add('alert', 'alert2');
+  //   } else if ( i == 4 ) {
+  //     div.classList.add('alert', 'alert3');
+  //   } else {
+  //     div.classList.add('alert');
+  //   }
 
-  let div6 = div5.cloneNode(true);
-  div6.className = "alert alert2";
-  div6.innerHTML = week[5];
-  div5.parentNode.insertBefore(div6, div5.nextSibling);
-
-  let div7 = div6.cloneNode(true);
-  div7.innerHTML = week[6] ;
-  div6.parentNode.insertBefore(div7, div6.nextSibling);
+  //   div.innerHTML = week[i];
+  //   document.body.appendChild(div);
+  // }
 
   ///// вторая часть усложненного задания
   //Вывести в консоль только те, что начинаются с цифры 3 или 7
@@ -50,10 +51,9 @@ function main() {
   let arr = ['1835', '4229', '7392', '1513', '5555', '3123', '7639'];
 
   for (let i = 0; i < arr.length; i++) {
-    let num = arr[i].slice(0,1);
-    if (num == 3 || num == 7) {
+    if (arr[i].slice(0,1) == 3 || arr[i].slice(0,1) == 7 ) {
       console.log( arr[i] );
-    } 
+    }
   }
 
 }
