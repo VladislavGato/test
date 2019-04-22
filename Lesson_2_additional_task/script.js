@@ -34,7 +34,7 @@ function main() {
   //   let div = document.createElement('div'),
   //   p = document.createElement('p');
 
-  //   if ( i == 6 || i == 5 ) {
+  //   if ( week[i] == 'суббота' || week[i] == 'воскресенье' ) {
   //     div.classList.add('alert', 'alert2');
   //   } else if ( i == 4 ) {
   //     div.classList.add('alert', 'alert3');
@@ -51,7 +51,7 @@ function main() {
   // for (let i = 0; i < week.length; i++) {
   //   let div = document.createElement('div');
 
-  //   if ( i == 6 || i == 5 ) {
+  //   if ( week[i] == 'суббота' || week[i] == 'воскресенье' ) {
   //     div.classList.add('alert', 'alert2');
   //   } else if ( i == 4 ) {
   //     div.classList.add('alert', 'alert3');
