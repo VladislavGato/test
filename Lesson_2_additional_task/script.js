@@ -11,12 +11,13 @@ function main() {
     'суббота',
     'воскресенье'
   ];
-
+ //Текущий день - курсивом пока можно задать текущий день вручную, без работы с объектом даты
+ // текущий день пока что задал просто как 4
   for (let i = 0; i < week.length; i++) {
     let div = document.createElement('div'),
     p = document.createElement('p');
 
-    if ( i == 6 || i == 5 ) {
+    if ( week[i] == 'суббота' || week[i] == 'воскресенье' ) {
       div.classList.add('alert', 'alert2');
     } else if ( i == 4 ) {
       div.classList.add('alert', 'alert3');
@@ -28,6 +29,23 @@ function main() {
     div.appendChild(p);
     p.innerHTML = week[i];
   }
+
+  // for (let i = 0; i < week.length; i++) {
+  //   let div = document.createElement('div'),
+  //   p = document.createElement('p');
+
+  //   if ( i == 6 || i == 5 ) {
+  //     div.classList.add('alert', 'alert2');
+  //   } else if ( i == 4 ) {
+  //     div.classList.add('alert', 'alert3');
+  //   } else {
+  //     div.classList.add('alert');
+  //   }
+
+  //   document.body.appendChild(div);
+  //   div.appendChild(p);
+  //   p.innerHTML = week[i];
+  // }
 
 //////// второй вариант без создавания тега <p>
   // for (let i = 0; i < week.length; i++) {
