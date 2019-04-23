@@ -105,16 +105,16 @@ let appData = {
 // 3 пункт
 // вариант 1  -   без вывода функций и объектов, которые вроде
 //  как нельзявывести через for in
-for (let key in appData) {
-    if (typeof(appData[key]) == 'object' || 
-        typeof(appData[key]) == "function") {
-        continue;
-    } else {
+// for (let key in appData) {
+//     if (typeof(appData[key]) == 'object' || 
+//         typeof(appData[key]) == "function") {
+//         continue;
+//     } else {
         
-        console.log('Наша программа включает в себя данные:  ' +
-                     key + ': ' + appData[key]);
-    } 
-}
+//         console.log('Наша программа включает в себя данные:  ' +
+//                      key + ': ' + appData[key]);
+//     } 
+// }
 // вариант 2  -  выводит всё
 for (let key in appData) {
     console.log('Наша программа включает в себя данные:  ' +
