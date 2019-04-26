@@ -57,6 +57,6 @@ function getFriendlyNumbers(start, end) {
 			}
 		}
 	}
-  return resultArrFunc; // выдать результат
+  return resultArrFunc; // выдать результат или пустой массив
 }	
 

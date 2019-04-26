@@ -16,12 +16,13 @@ let monthsavingsValue = document.getElementsByClassName('monthsavings-value');
 let yearsavingsValue = document.getElementsByClassName('yearsavings-value');
 
 
-//3 Получить поля(input) c обязательными расходами
+//3 Получить поля(input) c обязательными расходами     !!!!!
 //  через класс. (class=”expenses-item”)
-let expenses1name = document.getElementsByClassName('expenses-item')[0];
-let expenses2price = document.getElementsByClassName('expenses-item')[1];
-let expenses3name = document.getElementsByClassName('expenses-item')[2];
-let expenses4price = document.getElementsByClassName('expenses-item')[3];
+let expensesItem = document.getElementsByClassName('expenses-item');
+// let expenses1name = document.getElementsByClassName('expenses-item')[0];
+// let expenses2price = document.getElementsByClassName('expenses-item')[1];
+// let expenses3name = document.getElementsByClassName('expenses-item')[2];
+// let expenses4price = document.getElementsByClassName('expenses-item')[3];
 
 
 //4 Получить кнопки “Утвердить” и “Рассчитать”
@@ -31,11 +32,12 @@ let optionalexpensesBtn = document.getElementsByTagName('button')[1];
 let countBudgetBtn = document.getElementsByTagName('button')[2];
 
 
-//5 Получить поля для ввода необязательных расходов (optionalexpenses-item)
-//  при помощи querySelectorAll
-let optionalexpenses1 = document.querySelectorAll('.optionalexpenses-item')[0];
-let optionalexpenses2 = document.querySelectorAll('.optionalexpenses-item')[1]; 
-let optionalexpenses3 = document.querySelectorAll('.optionalexpenses-item')[2]; 
+//5 Получить поля для ввода необязательных расходов          !!!!!!
+//  (optionalexpenses-item) при помощи querySelectorAll
+let optionalexpensesItem = document.querySelectorAll('.optionalexpenses-item');
+// let optionalexpenses1 = document.querySelectorAll('.optionalexpenses-item')[0];
+// let optionalexpenses2 = document.querySelectorAll('.optionalexpenses-item')[1]; 
+// let optionalexpenses3 = document.querySelectorAll('.optionalexpenses-item')[2]; 
 
 
 //6 Получить оставшиеся поля через querySelector (статьи возможного
