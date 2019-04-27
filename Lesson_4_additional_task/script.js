@@ -24,7 +24,10 @@ function getFriendlyNumbers(start, end) {
 	// ищем все числа с их делителями
 	if ( (typeof(start) === 'number') && (typeof(end) === 'number') &&
          (start <= end) && (start > 0) && (start > 0) &&
-          ((~~start) === start) && ((~~end) === end)) { //проверяем все числа
+					((~~start) === start) && ((~~end) === end) && 
+					 (!isNaN(start)) && (!isNaN(end))) { //проверяем все числа
+
+
 	  for (let startNum = start; startNum <= end; startNum++) { 
 			let dividersSum = 0; // сумма всех делителей числа
 			//Округление битовым операторам ~~ до целого,
@@ -60,3 +63,4 @@ function getFriendlyNumbers(start, end) {
   return resultArrFunc; // выдать результат или пустой массив
 }	
 
+console.log(typeof(1));

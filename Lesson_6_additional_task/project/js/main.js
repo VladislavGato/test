@@ -9,8 +9,9 @@ let startBtn = document.getElementById('start'),
 	monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
 	yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
 
-	expensesItem = document.getElementsByClassName('expenses-item'),
+	expensesItem = document.querySelectorAll('.expenses-item'),
 	expensesBtn = document.getElementsByTagName('button')[0],
+
 	optionalExpensesBtn = document.getElementsByTagName('button')[1],
 	countBtn = document.getElementsByTagName('button')[2],
 	optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
@@ -38,31 +39,80 @@ startBtn.addEventListener('click', function() {
 	yearValue.value = new Date(Date.parse(time)).getFullYear();
 	monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
 	dayValue.value = new Date(Date.parse(time)).getDate();
+
+	countBtn.disabled = false;
+	countBtn.style.background = 'green';
 });
+
+
+expensesBtn.disabled = true;
+expensesBtn.style.background = 'red';
+
+expensesItem.forEach( item => {	
+    item.addEventListener('input', () => {
+        if(item.value != ''){
+          expensesBtn.disabled = false;
+          expensesBtn.style.background = 'green';
+        } else {
+          expensesBtn.disabled = true;
+          expensesBtn.style.background = 'red';
+        }
+    });
+});
+
 
 expensesBtn.addEventListener('click', function() {
 	if (appData.startValue == true) {
 		let sum = 0;
-
-		for (let i = 0; i < expensesItem.length; i++) {
-			let a = expensesItem[i].value,
-				b = expensesItem[++i].value;
+		expensesItem.textContent = '';
+		if (appData.expensesItemValue = true) {
+			for (let i = 0; i < expensesItem.length; i++) {
+				let a = expensesItem[i].value,
+					b = expensesItem[++i].value;
 			
-			if ( (typeof(a) != null) && (typeof(b) != null) && 
-				(typeof(a) === 'string') && (a != '') && (b != '') &&
-				(a.length < 50) && (b.length < 50) && (!isNaN(b)) ) {
-				console.log("Всё верно");
-				appData.expenses[a] = b;
-				sum += +b;
-			} else {
-				console.log("Повторите ввод ещё раз");
-				i = i - 1;         
-			} 
+
+
+				if ( (typeof(a) != null) && (typeof(b) != null) && 
+					(typeof(a) === 'string') && (a != '') && (b != '') &&
+					(a.length < 50) && (b.length < 50) && (!isNaN(b)) ) {
+					console.log("Всё верно");
+					appData.expenses[a] = b;
+					sum += +b;
+				} else {
+					console.log("Повторите ввод ещё раз");
+					// i = i - 1;         
+				} 
+			}
+			
+			appData.expensesSum = sum;
+			expensesValue.textContent = sum;
+			appData.expensesSum = '';
+
 		}
-		expensesValue.textContent = sum;
-		appData.expensesSum = sum;
+	
 	}
 });
+
+optionalExpensesBtn.disabled = true;
+optionalExpensesBtn.style.background = 'red';
+
+optionalExpensesItem.forEach( item => {	
+    item.addEventListener('input', () => {
+        if(item.value != ''){
+			optionalExpensesBtn.disabled = false;
+			optionalExpensesBtn.style.background = 'green';
+        } else {
+			optionalExpensesBtn.disabled = true;
+			optionalExpensesBtn.style.background = 'red';
+		}		
+		// if(item.value != '') {
+		// 	appData.optionalExpensesNumber++;
+		// } else {
+		// 	appData.optionalExpensesNumber--;
+		// }
+    });
+});
+
 
 optionalExpensesBtn.addEventListener('click', function() {
 	if (appData.startValue == true) {
@@ -78,6 +128,7 @@ optionalExpensesBtn.addEventListener('click', function() {
 		// 		i--;         
 		// 	}
 		// }
+		// appData.optionalExpensesNumber = 0;
 		optionalExpensesValue.textContent = '';// обнуляем перед повторным вводом
 
 		for (let i = 0; i < optionalExpensesItem.length; i++) {
@@ -87,10 +138,14 @@ optionalExpensesBtn.addEventListener('click', function() {
 			if (checkLang.test(opt) == true ) {
 				appData.optionalExpenses[i] = opt;
 				optionalExpensesValue.textContent += appData.optionalExpenses[i] + ' ';	
+				// appData.optionalExpensesNumber += 1;
 			}
+			
 		}
 	}
 });
+countBtn.disabled = true;
+countBtn.style.background = 'red';
 
 countBtn.addEventListener('click', function() {
 	if (appData.startValue == true) {
@@ -166,7 +221,9 @@ let appData = {
     income: [], 
 	savings: false,
 	startValue: false,//нажали ли СТАРТ
-	expensesSum: 0 // сумма обязательных трат
+	expensesSum: 0, // сумма обязательных трат
+	expensesItemValue: false // состояние кнопки утв. обяз.расх
+	// optionalExpensesNumber: 0
 };
 
 
