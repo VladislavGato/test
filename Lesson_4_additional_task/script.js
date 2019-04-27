@@ -62,5 +62,3 @@ function getFriendlyNumbers(start, end) {
 	}
   return resultArrFunc; // выдать результат или пустой массив
 }	
-
-console.log(typeof(1));

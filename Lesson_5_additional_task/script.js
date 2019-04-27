@@ -11,9 +11,15 @@ let dataTime = {
     second: time.getSeconds()// Возвращает секунды (0-59)
 };
 // console.log(dataTime);
+// let body = document.querySelector('body');
+// let divTime = document.createElement('div');
+// document.body.appendChild(divTime);
 let body = document.querySelector('body');
-let divTime = document.createElement('div');
-document.body.appendChild(divTime);
+// let divTime = document.createElement('div');
+// document.body.appendChild(divTime);
+
+
+
 
 // 2) Напишите функцию, которая будет добавлять 0 перед днями и месяцами,
 //  которые состоят из одной цифры (из 1.6.2018 сделает 01.06.2018)
